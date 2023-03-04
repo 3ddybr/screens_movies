@@ -7,36 +7,19 @@ export const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
     list-style: none;
 }
+:focus {
+    outline: 0;
+    box-shadow: 0 0 0 2px ${({ theme }) => theme.white};
+  }
 
-:root{
-  --white: #ffffff;
-  --gray-200:#737174;
-  --gray-500:#4F4E50;
-  --gray-600:#363536;
-  --black: #0A070B;
-  
-  /* --blue-100:#D5EDFE;sssss
-  --blue-200:#81BFFB;
-  --blue-300:#7BB4FF;
-  --blue-400:#2E82F2;
-  --blue-800:#263660; */
-
-  /* --bg: #F6FBFE; */
-
-  --success: #1EBC99;
-  --information:#1884F7;
-  --warning: #F9CC0D;
-  --important #f41b3b;
-
-}
 
 html{
     font-size: 62.5%;
 }
 
-html,body{
-  background: var(--black);
-  color: var(--white);
+body{
+  background: ${({ theme }) => theme.black};
+  color: ${({ theme }) => theme.white};
 
   -webkit-font-smoothing: antialiased;
 
@@ -44,9 +27,14 @@ html,body{
   /* height:100vh; */
 }
 
-body, form, input, textarea, select, button {
-    font: 700 1rem "Open+Sans", sans-serif;
-}
+body,
+  input,
+  textarea,
+  button {
+    font-family: 'Martel-sans', sans-serif;
+    font-weight: 400;
+    font-size: 1rem;
+  }
 
 a, button, img{
     cursor: pointer;

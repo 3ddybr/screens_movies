@@ -7,8 +7,6 @@ import Home from './Pages/Home'
 import Movie from './Pages/Movie'
 import Search from './Pages/Search'
 
-import { GlobalStyle } from './styles/global'
-
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
     <BrowserRouter>
@@ -19,7 +17,6 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
           <Route path="/search" element={<Search />} />
         </Route>
       </Routes>
-      <GlobalStyle />
     </BrowserRouter>
   </React.StrictMode>,
 )
