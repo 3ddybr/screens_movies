@@ -1,8 +1,12 @@
 import styled from 'styled-components'
 
 export const CarouselContainer = styled.div`
-  background: green;
+  /* display: flex;
+  align-items: center; */
 
-  width: 100%;
-  height: auto;
+  border: 1px solid red;
+`
+export const CarouselContent = styled.div`
+  display: flex;
+  align-items: center;
 `

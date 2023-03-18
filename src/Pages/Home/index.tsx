@@ -1,5 +1,5 @@
-import React from 'react'
 import { Banner } from '../../Components/Banner'
+import { CardCarousel } from '../../Components/CardCarousel'
 import { Carousel } from '../../Components/Carousel'
 import { Navbar } from '../../Components/NavBar'
 
@@ -9,6 +9,7 @@ export default function Home() {
       <Navbar />
       <Banner />
       <Carousel />
+      {/* <CardCarousel /> */}
     </div>
   )
 }
