@@ -18,11 +18,14 @@ export function Carousel() {
     const res = await api.get(`top_rated?${apiKey}&language=pt-BR`)
     const data = res.data.results
     console.log('resposta', data)
+    setTopMovies(data)
   }
 
   useEffect(() => {
     getTopRatedMovies()
   }, [])
+
+  const urlImgPadrao = 'https://image.tmdb.org/t/p/w500'
   return (
     <CarouselContainer>
       <h1>Popular</h1>
@@ -32,17 +35,17 @@ export function Carousel() {
         onSlideChange={() => console.log('slide change')}
         onSwiper={(swiper) => console.log(swiper)}
       >
-        <SwiperSlide>{<CardCarousel />}</SwiperSlide>
-        <SwiperSlide>{<CardCarousel />}</SwiperSlide>
-        <SwiperSlide>{<CardCarousel />}</SwiperSlide>
-        <SwiperSlide>{<CardCarousel />}</SwiperSlide>
-        <SwiperSlide>{<CardCarousel />}</SwiperSlide>
-        <SwiperSlide>{<CardCarousel />}</SwiperSlide>
-        <SwiperSlide>{<CardCarousel />}</SwiperSlide>
-        <SwiperSlide>{<CardCarousel />}</SwiperSlide>
-        <SwiperSlide>{<CardCarousel />}</SwiperSlide>
-        <SwiperSlide>{<CardCarousel />}</SwiperSlide>
-        ...
+        {topMovies.map(
+          (movie: { id: null | undefined; poster_path: string }) => (
+            <SwiperSlide key={movie.id}>
+              <CardCarousel
+                key={movie.id}
+                postImg={`${urlImgPadrao}${movie.poster_path}`}
+              />
+            </SwiperSlide>
+            // eslint-disable-next-line prettier/prettier
+          )
+        )}
       </Swiper>
     </CarouselContainer>
   )
