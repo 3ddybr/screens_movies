@@ -8,7 +8,11 @@ export default function Home() {
     <div>
       <Navbar />
       <Banner />
-      <Carousel />
+      <Carousel descShared="top_rated?" descTitle="Top Rank" />
+      <Carousel descShared="popular?" descTitle="Popular" />
+      <Carousel descShared="upcoming?" descTitle="Esta Por Vir" />
+      {/* <Carousel descShared="discover/movie?" descTitle="Mais Recentes" /> */}
+      <Carousel descShared="now_playing?" descTitle="Assistindo Agora" />
       {/* <CardCarousel /> */}
     </div>
   )
