@@ -73,7 +73,7 @@ export const ProgressRoot = styledRadix(Progress.Root, {
 
 export const ProgressIndicator = styledRadix(Progress.Indicator, {
   backgroundColor: red.red11,
-  width: '100%',
+  width: '80%',
   height: '100%',
   transition: 'transform 660ms cubic-bezier(0.65, 0, 0.35, 1)',
 })

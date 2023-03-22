@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { api, apiKey, urlImg500 } from '../../api/api'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Navigation } from 'swiper'
+import { Link } from 'react-router-dom'
 
 import 'swiper/css'
 import 'swiper/css/navigation'
@@ -74,12 +75,14 @@ export function Carousel({ descShared, descTitle }: CarouselProps) {
               vote_average: string
             }) => (
               <SwiperSlide key={movie.id}>
-                <CardCarousel
-                  key={movie.id}
-                  postImg={`${urlImg500}${movie.backdrop_path}`}
-                  titleCard={movie.title}
-                  votoPont={movie.vote_average}
-                />
+                <Link to={`movie/${movie.id}`}>
+                  <CardCarousel
+                    key={movie.id}
+                    postImg={`${urlImg500}${movie.backdrop_path}`}
+                    titleCard={movie.title}
+                    votoPont={movie.vote_average}
+                  />
+                </Link>
               </SwiperSlide>
               // eslint-disable-next-line prettier/prettier
             )
