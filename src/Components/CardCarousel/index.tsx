@@ -6,9 +6,15 @@ import moviePost from '../../assets/MoviePoster1.svg'
 interface CardCarouselProps {
   // children: ReactNode
   postImg: string
+  titleCard: string
+  votoPont: string
 }
 
-export function CardCarousel({ postImg }: CardCarouselProps) {
+export function CardCarousel({
+  postImg,
+  titleCard,
+  votoPont,
+}: CardCarouselProps) {
   const [progress, setProgress] = useState(13)
 
   useEffect(() => {
@@ -18,6 +24,8 @@ export function CardCarousel({ postImg }: CardCarouselProps) {
   return (
     <Container>
       <img src={postImg} alt="" />
+      <h1>{titleCard}</h1>
+      <p>{votoPont} </p>
 
       <div>
         <ProgressRoot value={progress}>

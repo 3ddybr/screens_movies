@@ -11,12 +11,39 @@ export const Container = styled.div`
   justify-content: center;
   flex-direction: column;
 
+  position: relative;
+
   max-width: 28.5rem;
+
+  h1 {
+    width: 100%;
+    position: absolute;
+    font-size: 1.5rem;
+
+    padding-left: 1rem;
+    bottom: 10%;
+  }
+
+  p {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 3rem;
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 1.5rem;
+    color: ${({ theme }) => theme['yellow-500']};
+    background-color: ${({ theme }) => theme['red-900']};
+    padding: 0.5rem;
+    border-bottom-left-radius: 50%;
+  }
 
   img {
     width: 100%;
-    max-width: 28.5rem;
-    max-height: 16rem;
+    /* max-width: 28.5rem; */
+    /* max-height: 16rem; */
     margin-bottom: 0.8rem;
   }
 
