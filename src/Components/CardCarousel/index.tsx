@@ -1,8 +1,6 @@
 import { ReactNode, useEffect, useState } from 'react'
 
 import { Container, ProgressIndicator, ProgressRoot } from './styles'
-import moviePost from '../../assets/MoviePoster1.svg'
-import { Link } from 'react-router-dom'
 
 interface CardCarouselProps {
   // children: ReactNode

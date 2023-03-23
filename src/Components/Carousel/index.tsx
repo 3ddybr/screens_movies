@@ -19,17 +19,17 @@ interface CarouselProps {
 }
 
 export function Carousel({ descShared, descTitle }: CarouselProps) {
-  const [topMovies, setTopMovies] = useState([])
+  const [listMovies, setListMovies] = useState([])
 
-  const getTopRatedMovies = async () => {
+  const getListMovies = async () => {
     const res = await api.get(`${descShared}${apiKey}&language=pt-BR`)
     const data = res.data.results
-    console.log({ descTitle }, data)
-    setTopMovies(data)
+    // console.log({ descTitle }, data)
+    setListMovies(data)
   }
 
   useEffect(() => {
-    getTopRatedMovies()
+    getListMovies()
   }, [])
 
   return (
@@ -67,7 +67,7 @@ export function Carousel({ descShared, descTitle }: CarouselProps) {
             },
           }}
         >
-          {topMovies.map(
+          {listMovies.map(
             (movie: {
               id: null | undefined
               backdrop_path: string
