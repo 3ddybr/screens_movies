@@ -1,0 +1,3 @@
+## colocar spiner no carregamento 
+## estilizar input de pesquisa 
+## editar o banner pra dinamico 

@@ -22,7 +22,7 @@ export function Carousel({ descShared, descTitle }: CarouselProps) {
   const [listMovies, setListMovies] = useState([])
 
   const getListMovies = async () => {
-    const res = await api.get(`${descShared}${apiKey}&language=pt-BR`)
+    const res = await api.get(`movie/${descShared}`)
     const data = res.data.results
     // console.log({ descTitle }, data)
     setListMovies(data)

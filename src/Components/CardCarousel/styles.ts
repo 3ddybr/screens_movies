@@ -18,7 +18,7 @@ export const Container = styled.div`
   h1 {
     width: 100%;
     position: absolute;
-    font-size: 1.5rem;
+    font-size: 1.5rem !important;
 
     padding-left: 1rem;
     bottom: 10%;

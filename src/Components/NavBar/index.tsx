@@ -6,12 +6,28 @@ import LogoImg from '../../assets/logo.svg'
 import PerfilImg from '../../assets/fotoPerfil.jpg'
 
 import { LogoNavBar, NavBarContainer, PerfilNavBar } from './styles'
+import { useState } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
 
 export function Navbar() {
+  const navigate = useNavigate()
+  const [search, setSearch] = useState('')
+
+  const handleSubmit = async (e: any) => {
+    e.preventDefault()
+
+    if (!search) return
+
+    navigate(`/search?q=${search}`)
+    setSearch('')
+    console.log(search)
+  }
   return (
     <NavBarContainer>
       <LogoNavBar>
-        <img src={LogoImg} alt="" />
+        <Link to="/">
+          <img src={LogoImg} alt="" />
+        </Link>
         <nav>
           <ul>
             <li>Início</li>
@@ -24,7 +40,17 @@ export function Navbar() {
         </nav>
       </LogoNavBar>
       <PerfilNavBar>
-        <CiSearch size={20} />
+        <form onSubmit={handleSubmit}>
+          <button type="submit">
+            <CiSearch size={20} />
+          </button>
+          <input
+            type="text"
+            placeholder="Buscar Filmes"
+            onChange={(e) => setSearch(e.target.value)}
+            value={search}
+          />
+        </form>
         <FaBell size={20} />
         <img src={PerfilImg} alt="" />
         {/* <MdFace3 size={32} color="red" /> */}

@@ -42,5 +42,18 @@ export const PerfilNavBar = styled.div`
     height: 3.2rem;
   }
 
+  form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    input {
+      width: 15rem;
+    }
+    button {
+      /* background: transparent; */
+    }
+  }
+
   /* border: 1px solid yellow; */
 `
