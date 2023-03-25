@@ -5,6 +5,7 @@ import { apiSearch, urlImg500 } from '../../api/api'
 import { CardCarousel } from '../../Components/CardCarousel'
 
 import { DataProps } from '../../@types/movie'
+import { SearchContainer, SearchContent } from './styles'
 
 export default function Search() {
   const [searchParams] = useSearchParams()
@@ -32,27 +33,29 @@ export default function Search() {
   }, [query])
 
   return (
-    <div>
-      {listMovies.map(
-        (movie: {
-          id: null | undefined
-          backdrop_path: string
-          title: string
-          vote_average: string
-        }) => (
-          <>
-            <Link to={`/movie/${movie.id}`}>
-              <CardCarousel
-                key={movie.id}
-                postImg={`${urlImg500}${movie.backdrop_path}`}
-                titleCard={movie.title}
-                votoPont={movie.vote_average}
-              />
-            </Link>
-          </>
-          // eslint-disable-next-line prettier/prettier
-        )
-      )}
-    </div>
+    <SearchContainer>
+      <SearchContent>
+        {listMovies.map(
+          (movie: {
+            id: null | undefined
+            backdrop_path: string
+            title: string
+            vote_average: string
+          }) => (
+            <>
+              <Link to={`/movie/${movie.id}`}>
+                <CardCarousel
+                  key={movie.id}
+                  postImg={`${urlImg500}${movie.backdrop_path}`}
+                  titleCard={movie.title}
+                  votoPont={movie.vote_average}
+                />
+              </Link>
+            </>
+            // eslint-disable-next-line prettier/prettier
+          )
+        )}
+      </SearchContent>
+    </SearchContainer>
   )
 }

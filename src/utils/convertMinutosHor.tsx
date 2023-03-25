@@ -1,4 +1,4 @@
-export function converter(minutos: number | undefined) {
+export function converter(minutos: number) {
   const horas = Math.floor(minutos / 60)
   const min = minutos % 60
   const textoHoras = `00${horas}`.slice(-2)

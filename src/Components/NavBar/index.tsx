@@ -20,7 +20,7 @@ export function Navbar() {
 
     navigate(`/search?q=${search}`)
     setSearch('')
-    console.log(search)
+    // console.log(search)
   }
   return (
     <NavBarContainer>
