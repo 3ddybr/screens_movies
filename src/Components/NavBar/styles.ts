@@ -48,11 +48,15 @@ export const PerfilNavBar = styled.div`
     justify-content: center;
     gap: 1rem;
     input {
-      width: 15rem;
+      width: 100%;
+      max-width: 15rem;
+      height: 100%;
+      max-height: 2rem;
     }
-    button {
-      /* background: transparent; */
-    }
+    /* button { */
+    /* border: 0; */
+    /* background: transparent; */
+    /* } */
   }
 
   /* border: 1px solid yellow; */

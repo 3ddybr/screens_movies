@@ -41,9 +41,9 @@ export function Navbar() {
       </LogoNavBar>
       <PerfilNavBar>
         <form onSubmit={handleSubmit}>
-          <button type="submit">
-            <CiSearch size={20} />
-          </button>
+          {/* <button type="submit"> */}
+          <CiSearch onClick={handleSubmit} size={20} />
+          {/* </button> */}
           <input
             type="text"
             placeholder="Buscar Filmes"

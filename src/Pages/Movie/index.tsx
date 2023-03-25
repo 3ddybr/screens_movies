@@ -5,6 +5,7 @@ import { converter } from '../../utils/convertMinutosHor'
 import { CarouselContent, MovieContainer } from './styles'
 
 import { DataProps } from '../../@types/movie'
+import { Spinier } from '../../utils/spinier'
 
 export default function Movie() {
   const [movie, setMovie] = useState<DataProps>()
@@ -24,27 +25,38 @@ export default function Movie() {
   return (
     <MovieContainer>
       <CarouselContent>
-        <div>
-          <h1>{movie?.title}</h1>
-          <h2>{movie?.tagline}</h2>
-          <img src={`${urlImg500}${movie?.backdrop_path}`} alt={movie?.title} />
-        </div>
+        {movie ? (
+          <>
+            <div>
+              <h1>{movie?.title}</h1>
+              <h2>{movie?.tagline}</h2>
+              <img
+                src={`${urlImg500}${movie?.backdrop_path}`}
+                alt={movie?.title}
+              />
+            </div>
 
-        <div>
-          <p>{movie?.overview}</p>
-          <p>Data de Lançamento: {movie?.release_date}</p>
-          <p>{converter(movie?.runtime)} hs</p>
-          <p>
-            Receita de{' '}
-            {movie?.revenue.toLocaleString('pt-br', {
-              style: 'currency',
-              currency: 'BRL',
-            })}
-          </p>
-          <Link to="/">
-            <button> Voltar</button>
-          </Link>
-        </div>
+            <div>
+              <p>{movie?.overview}</p>
+              <p>Data de Lançamento: {movie?.release_date}</p>
+              <p>{converter(movie?.runtime)} hs</p>
+              <p>
+                Receita de{' '}
+                {movie?.revenue.toLocaleString('pt-br', {
+                  style: 'currency',
+                  currency: 'BRL',
+                })}
+              </p>
+              <Link to="/">
+                <button> Voltar</button>
+              </Link>
+            </div>
+          </>
+        ) : (
+          <>
+            <Spinier />
+          </>
+        )}
       </CarouselContent>
     </MovieContainer>
   )
