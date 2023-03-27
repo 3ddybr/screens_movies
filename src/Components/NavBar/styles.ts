@@ -47,11 +47,30 @@ export const PerfilNavBar = styled.div`
     align-items: center;
     justify-content: center;
     gap: 1rem;
+
+    .lupa {
+      width: 100%;
+      max-width: 2rem;
+      height: 100%;
+      min-height: 2rem;
+
+      font-weight: 900;
+    }
+
     input {
       width: 100%;
       max-width: 15rem;
-      height: 100%;
+      height: 100vh;
       max-height: 2rem;
+      border: 0;
+      outline: 0;
+
+      font-size: 2rem;
+      padding: 0.5rem;
+      :focus {
+        outline: none;
+        border: 0;
+      }
     }
     /* button { */
     /* border: 0; */

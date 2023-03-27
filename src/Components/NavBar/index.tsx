@@ -1,5 +1,5 @@
 import { CiSearch } from 'react-icons/ci'
-import { FaBell } from 'react-icons/fa'
+import { FaBell, FaSearch } from 'react-icons/fa'
 import { MdFace3 } from 'react-icons/md'
 
 import LogoImg from '../../assets/logo.svg'
@@ -42,7 +42,7 @@ export function Navbar() {
       <PerfilNavBar>
         <form onSubmit={handleSubmit}>
           {/* <button type="submit"> */}
-          <CiSearch onClick={handleSubmit} size={20} />
+          <FaSearch onClick={handleSubmit} size={20} className="lupa" />
           {/* </button> */}
           <input
             type="text"

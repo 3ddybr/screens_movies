@@ -1,7 +1,7 @@
 ## colocar spiner no carregamento 
-## estilizar input de pesquisa navbar 
+## estilizar input de pesquisa navbar  ----ok
 ## editar o banner pra dinamico 
 
 ##criar paginacao 
 ##editar banner pra dinamico 
- #limitar para dois digitos os pontos do card
+#limitar para dois digitos os pontos do card
