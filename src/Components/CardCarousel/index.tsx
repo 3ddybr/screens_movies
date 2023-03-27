@@ -24,7 +24,7 @@ export function CardCarousel({
     <Container>
       <img src={postImg} alt="" />
       <h1>{titleCard}</h1>
-      <p>{votoPont} </p>
+      <p>{parseFloat(votoPont).toFixed(1)} </p>
 
       <div>
         <ProgressRoot value={progress}>
