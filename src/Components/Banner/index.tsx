@@ -1,17 +1,10 @@
-import { ReactNode } from 'react'
-
+import { BannerCarousel } from './BannerCarousel'
 import { BannerContainer } from './styles'
-
-import BannerImg from '../../assets/bannerImg.svg'
-
-interface BannerProps {
-  children: ReactNode
-}
 
 export function Banner() {
   return (
     <BannerContainer>
-      <img src={BannerImg} alt="" />
+      <BannerCarousel />
       {/* <h1>Banner</h1> */}
     </BannerContainer>
   )
