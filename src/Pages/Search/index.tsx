@@ -5,12 +5,14 @@ import { apiSearch, urlImg500 } from '../../api/api'
 import { CardCarousel } from '../../Components/CardCarousel'
 
 import { DataProps } from '../../@types/movie'
-import { SearchContainer, SearchContent } from './styles'
+import { SearchButtonContent, SearchContainer, SearchContent } from './styles'
 
 export default function Search() {
   const [searchParams] = useSearchParams()
 
   const [listMovies, setListMovies] = useState([])
+  const [page, setPage] = useState(1)
+  const [totalPages, setTotalPages] = useState(0)
 
   const query = searchParams.get('q')
 
@@ -19,25 +21,40 @@ export default function Search() {
     const res = await apiSearch.get(`movie`, {
       params: {
         query,
+        page,
       },
     })
     const data = res.data.results as []
     // setListMovies(data.filter((movie) => !!movie.backdrop_path))
     setListMovies(data.filter((movie: DataProps) => !!movie.backdrop_path))
-    console.log(res.data)
+    setPage(res.data.page)
+    setTotalPages(res.data.total_pages)
+    console.log('console do Data completo', res.data)
   }
   // console.log(listMovies)
 
   useEffect(() => {
     getMovie()
-  }, [query])
+  }, [query, page])
+
+  function handlePaginationNext() {
+    if (page < totalPages) {
+      setPage(page + 1)
+    }
+  }
+
+  function handlePaginationBefore() {
+    if (page > 1) {
+      setPage(page - 1)
+    }
+  }
 
   return (
     <SearchContainer>
-      <SearchContent>
+      <SearchContent key={1}>
         {listMovies.map(
           (movie: {
-            id: null | undefined
+            id: number
             backdrop_path: string
             title: string
             vote_average: string
@@ -56,6 +73,14 @@ export default function Search() {
           )
         )}
       </SearchContent>
+      <SearchButtonContent>
+        <p>{`${page} / ${totalPages}`}</p>
+        <div>
+          <button onClick={handlePaginationBefore}>Antes</button>
+          {/* <button>Proximo</button> */}
+          <button onClick={handlePaginationNext}>Proximo</button>
+        </div>
+      </SearchButtonContent>
     </SearchContainer>
   )
 }

@@ -1,7 +1,13 @@
-## colocar spiner no carregamento 
-## estilizar input de pesquisa navbar  ----ok
-## editar o banner pra dinamico 
+## colocar spinier no carregamento  no carousel
+## editar o banner pra dinâmico 
+##fazer o menu hamburger
+##editar banner pra dinâmico 
+## inserir sem imagem para quando nao retorna banner
 
-##criar paginacao 
-##editar banner pra dinamico 
-#limitar para dois digitos os pontos do card
+
+
+
+##criar paginação ---ok
+## estilizar pagina search  ---ok
+## estilizar input de pesquisa navbar  ----ok
+#limitar para dois dígitos os pontos do card ---ok

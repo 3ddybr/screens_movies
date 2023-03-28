@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react'
-import { Link, useParams } from 'react-router-dom'
-import { api, apiKey, urlImg500 } from '../../api/api'
+import { useEffect, useState } from 'react'
+import { Link, useParams, useNavigate } from 'react-router-dom'
+import { api, urlImg500 } from '../../api/api'
 import { converter } from '../../utils/convertMinutosHor'
 import { CarouselContent, MovieContainer } from './styles'
 
@@ -8,6 +8,7 @@ import { DataProps } from '../../@types/movie'
 import { Spinier } from '../../utils/spinier'
 
 export default function Movie() {
+  const navigate = useNavigate()
   const [movie, setMovie] = useState<DataProps>()
   const { id } = useParams()
 
@@ -22,6 +23,7 @@ export default function Movie() {
     getMovie()
   }, [])
   console.log(movie)
+
   return (
     <MovieContainer>
       <CarouselContent>
@@ -47,9 +49,9 @@ export default function Movie() {
                   currency: 'BRL',
                 })}
               </p>
-              <Link to="/">
-                <button> Voltar</button>
-              </Link>
+              {/* <Link to="/"> */}
+              <button onClick={() => navigate(-1)}> Voltar</button>
+              {/* </Link> */}
             </div>
           </>
         ) : (

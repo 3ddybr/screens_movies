@@ -65,7 +65,7 @@ export const PerfilNavBar = styled.div`
       border: 0;
       outline: 0;
 
-      font-size: 2rem;
+      font-size: 1.5rem;
       padding: 0.5rem;
       :focus {
         outline: none;

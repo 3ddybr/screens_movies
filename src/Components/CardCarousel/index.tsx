@@ -14,7 +14,7 @@ export function CardCarousel({
   titleCard,
   votoPont,
 }: CardCarouselProps) {
-  const [progress, setProgress] = useState(13)
+  const [progress, setProgress] = useState(40)
 
   useEffect(() => {
     const timer = setTimeout(() => setProgress(10), 500)
