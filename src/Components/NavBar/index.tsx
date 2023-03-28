@@ -26,7 +26,7 @@ export function Navbar() {
     <NavBarContainer>
       <LogoNavBar>
         <Link to="/">
-          <img src={LogoImg} alt="" />
+          <img src={LogoImg} alt="Logo BD SCREENS" />
         </Link>
         <nav>
           <ul>

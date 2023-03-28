@@ -1,6 +1,10 @@
 ## editar o banner pra dinâmico 
 ##fazer o menu hamburger
-##editar banner pra dinâmico 
+##criar tela de profile
+
+
+##criar o footer
+
 
 
 

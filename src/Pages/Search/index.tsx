@@ -62,15 +62,25 @@ export default function Search() {
               (movie: {
                 id: number
                 backdrop_path: string
+                poster_path?: string
                 title: string
                 vote_average: string
               }) => (
                 <>
                   <Link to={`/movie/${movie.id}`}>
-                    {movie.backdrop_path === null ? (
+                    {movie.backdrop_path === null &&
+                    movie.poster_path === null ? (
                       <CardCarousel
                         key={movie.id}
                         postImg=""
+                        titleCard={movie.title}
+                        votoPont={movie.vote_average}
+                      />
+                    ) : movie.backdrop_path === null &&
+                      movie.poster_path !== null ? (
+                      <CardCarousel
+                        key={movie.id}
+                        postImg={`${urlImg500}${movie.poster_path}`}
                         titleCard={movie.title}
                         votoPont={movie.vote_average}
                       />
