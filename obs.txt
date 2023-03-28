@@ -1,14 +1,14 @@
-## editar o banner pra dinâmico 
 ##fazer o menu hamburger
 ##criar tela de profile
 
 
-##criar o footer
+
+## editar o banner pra dinâmico 
 
 
 
 
-
+##criar o footer ---ok
 ## inserir sem imagem para quando nao retorna banner ---ok
 ## colocar spinier no carregamento  no carousel ---ok
 ##criar paginação ---ok

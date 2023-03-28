@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 
 export const CarouselContainer = styled.div`
+  margin: 9rem 0;
   h1 {
     font-size: 2.6rem;
     margin: 1rem 6rem;

@@ -25,8 +25,13 @@ export const MovieContainer = styled.div`
     }
 
     p {
+      display: flex;
+      align-items: center;
+      justify-content: center;
       font-size: 1.5rem;
       padding-bottom: 1rem;
+
+      gap: 1rem;
     }
 
     button {

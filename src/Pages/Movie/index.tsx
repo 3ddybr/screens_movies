@@ -4,6 +4,12 @@ import { api, urlImg500 } from '../../api/api'
 import { converter } from '../../utils/convertMinutosHor'
 import { CarouselContent, MovieContainer } from './styles'
 
+import {
+  AiOutlineCalendar,
+  AiOutlineFieldTime,
+  AiOutlineDollarCircle,
+} from 'react-icons/ai'
+
 import { DataProps } from '../../@types/movie'
 import { Spinier } from '../../utils/spinier'
 
@@ -46,9 +52,16 @@ export default function Movie() {
 
             <div>
               <p>{movie?.overview}</p>
-              <p>Data de Lançamento: {movie?.release_date}</p>
-              <p>{converter(movie?.runtime)} hs</p>
               <p>
+                <AiOutlineCalendar size={20} /> Data de Lançamento:{' '}
+                {movie?.release_date}
+              </p>
+              <p>
+                <AiOutlineFieldTime size={20} />
+                {converter(movie?.runtime)} hs
+              </p>
+              <p>
+                <AiOutlineDollarCircle size={20} />
                 Receita de{' '}
                 {movie?.revenue.toLocaleString('pt-br', {
                   style: 'currency',
