@@ -6,6 +6,7 @@ import { CardCarousel } from '../../Components/CardCarousel'
 
 import { DataProps } from '../../@types/movie'
 import { SearchButtonContent, SearchContainer, SearchContent } from './styles'
+import { Spinier } from '../../utils/spinier'
 
 export default function Search() {
   const [searchParams] = useSearchParams()
@@ -26,7 +27,8 @@ export default function Search() {
     })
     const data = res.data.results as []
     // setListMovies(data.filter((movie) => !!movie.backdrop_path))
-    setListMovies(data.filter((movie: DataProps) => !!movie.backdrop_path))
+    // setListMovies(data.filter((movie: DataProps) => !!movie.backdrop_path))
+    setListMovies(data)
     setPage(res.data.page)
     setTotalPages(res.data.total_pages)
     console.log('console do Data completo', res.data)
@@ -51,26 +53,41 @@ export default function Search() {
 
   return (
     <SearchContainer>
-      <SearchContent key={1}>
-        {listMovies.map(
-          (movie: {
-            id: number
-            backdrop_path: string
-            title: string
-            vote_average: string
-          }) => (
-            <>
-              <Link to={`/movie/${movie.id}`}>
-                <CardCarousel
-                  key={movie.id}
-                  postImg={`${urlImg500}${movie.backdrop_path}`}
-                  titleCard={movie.title}
-                  votoPont={movie.vote_average}
-                />
-              </Link>
-            </>
-            // eslint-disable-next-line prettier/prettier
-          )
+      <SearchContent>
+        {!listMovies ? (
+          <Spinier />
+        ) : (
+          <>
+            {listMovies.map(
+              (movie: {
+                id: number
+                backdrop_path: string
+                title: string
+                vote_average: string
+              }) => (
+                <>
+                  <Link to={`/movie/${movie.id}`}>
+                    {movie.backdrop_path === null ? (
+                      <CardCarousel
+                        key={movie.id}
+                        postImg=""
+                        titleCard={movie.title}
+                        votoPont={movie.vote_average}
+                      />
+                    ) : (
+                      <CardCarousel
+                        key={movie.id}
+                        postImg={`${urlImg500}${movie.backdrop_path}`}
+                        titleCard={movie.title}
+                        votoPont={movie.vote_average}
+                      />
+                    )}
+                  </Link>
+                </>
+                // eslint-disable-next-line prettier/prettier
+              )
+            )}
+          </>
         )}
       </SearchContent>
       <SearchButtonContent>

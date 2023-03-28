@@ -14,6 +14,7 @@ export const Container = styled.div`
   position: relative;
 
   max-width: 28.5rem;
+  max-height: 16rem;
 
   h1 {
     width: 100%;
@@ -42,6 +43,8 @@ export const Container = styled.div`
 
   img {
     width: 100%;
+    /* height: fit-content; */
+    overflow: hidden;
     /* max-width: 28.5rem; */
     /* max-height: 16rem; */
     margin-bottom: 0.8rem;

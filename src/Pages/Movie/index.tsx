@@ -7,6 +7,8 @@ import { CarouselContent, MovieContainer } from './styles'
 import { DataProps } from '../../@types/movie'
 import { Spinier } from '../../utils/spinier'
 
+import SemImg from '../../assets/semImg.jpg'
+
 export default function Movie() {
   const navigate = useNavigate()
   const [movie, setMovie] = useState<DataProps>()
@@ -32,10 +34,14 @@ export default function Movie() {
             <div>
               <h1>{movie?.title}</h1>
               <h2>{movie?.tagline}</h2>
-              <img
-                src={`${urlImg500}${movie?.backdrop_path}`}
-                alt={movie?.title}
-              />
+              {movie?.backdrop_path === null ? (
+                <img src={SemImg} alt={movie?.title} />
+              ) : (
+                <img
+                  src={`${urlImg500}${movie?.backdrop_path}`}
+                  alt={movie?.title}
+                />
+              )}
             </div>
 
             <div>

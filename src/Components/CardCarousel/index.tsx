@@ -1,7 +1,7 @@
-import { ReactNode, useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 
 import { Container, ProgressIndicator, ProgressRoot } from './styles'
-
+import SemImg from '../../assets/semImg.jpg'
 interface CardCarouselProps {
   // children: ReactNode
   postImg: string
@@ -22,7 +22,11 @@ export function CardCarousel({
   }, [])
   return (
     <Container>
-      <img src={postImg} alt="" />
+      {postImg ? (
+        <img src={postImg} alt={titleCard} />
+      ) : (
+        <img src={SemImg} alt={titleCard} />
+      )}
       <h1>{titleCard}</h1>
       <p>{parseFloat(votoPont).toFixed(1)} </p>
 

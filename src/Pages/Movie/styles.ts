@@ -46,4 +46,9 @@ export const CarouselContent = styled.div`
   justify-content: center;
   flex-direction: column;
   max-width: 102.4rem;
+
+  img {
+    max-width: 51rem;
+    max-height: 28.1rem;
+  }
 `

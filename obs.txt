@@ -1,12 +1,12 @@
-## colocar spinier no carregamento  no carousel
 ## editar o banner pra dinâmico 
 ##fazer o menu hamburger
 ##editar banner pra dinâmico 
-## inserir sem imagem para quando nao retorna banner
 
 
 
 
+## inserir sem imagem para quando nao retorna banner ---ok
+## colocar spinier no carregamento  no carousel ---ok
 ##criar paginação ---ok
 ## estilizar pagina search  ---ok
 ## estilizar input de pesquisa navbar  ----ok
