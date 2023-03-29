@@ -53,23 +53,27 @@ export function Carousel({ descShared, descTitle }: CarouselProps) {
               modules={[Navigation]}
               breakpoints={{
                 640: {
-                  slidesPerView: 2,
+                  slidesPerView: 2.5,
                   spaceBetween: 5,
                 },
                 768: {
-                  slidesPerView: 3,
+                  slidesPerView: 3.5,
                   spaceBetween: 5,
                 },
                 1200: {
-                  slidesPerView: 4,
+                  slidesPerView: 4.5,
                   spaceBetween: 5,
                 },
                 1500: {
-                  slidesPerView: 6,
+                  slidesPerView: 5.5,
                   spaceBetween: 5,
                 },
                 1800: {
-                  slidesPerView: 8,
+                  slidesPerView: 7.5,
+                  spaceBetween: 5,
+                },
+                2300: {
+                  slidesPerView: 8.5,
                   spaceBetween: 5,
                 },
               }}
