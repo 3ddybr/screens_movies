@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const BannerCarouselContainer = styled.div`
-  margin: 9rem 0;
+  /* margin: 4rem 0; */
   width: 100%;
 `
 export const BannerCarouselContent = styled.div`

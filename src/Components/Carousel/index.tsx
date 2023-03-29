@@ -65,11 +65,11 @@ export function Carousel({ descShared, descTitle }: CarouselProps) {
                   spaceBetween: 5,
                 },
                 1500: {
-                  slidesPerView: 5,
+                  slidesPerView: 6,
                   spaceBetween: 5,
                 },
                 1800: {
-                  slidesPerView: 7,
+                  slidesPerView: 8,
                   spaceBetween: 5,
                 },
               }}
