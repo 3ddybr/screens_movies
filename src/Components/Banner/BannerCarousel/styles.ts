@@ -23,7 +23,7 @@ export const BannerCard = styled.div`
 
   div {
     position: absolute;
-    top: 35%;
+    top: 15%;
     left: 5%;
     /* bottom: 25%; */
     width: 100%;
@@ -31,7 +31,7 @@ export const BannerCard = styled.div`
 
     h1 {
       max-width: 63.6rem;
-      font-size: 6.6rem;
+      font-size: 5.5rem;
     }
     p {
       /* border: 1px solid red; */
@@ -53,6 +53,23 @@ export const BannerCard = styled.div`
       max-height: 6.2rem;
       font-size: 2.2rem;
       font-weight: bold;
+
+      color: black;
+      background-color: white;
+    }
+
+    @media (max-width: 1200px) {
+      h1 {
+        /* max-width: 60rem; */
+        font-size: 4.5rem;
+      }
+
+      p {
+        max-width: 60rem;
+        font-size: 1.8rem;
+      }
+      button {
+      }
     }
   }
 `

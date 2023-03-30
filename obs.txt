@@ -1,4 +1,3 @@
-##fazer o menu hamburger
 ##criar tela de profile
 ## Reponsividade
 
@@ -7,6 +6,7 @@
 
 
 
+##fazer o menu hamburger  ---ok
 ## editar o banner pra dinâmico ---ok
 ##criar o footer ---ok
 ## inserir sem imagem para quando nao retorna banner ---ok
