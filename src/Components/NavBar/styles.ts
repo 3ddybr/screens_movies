@@ -26,6 +26,11 @@ export const LogoNavBar = styled.div`
 
     cursor: pointer;
   }
+  @media (max-width: 940px) {
+    nav {
+      display: none;
+    }
+  }
 `
 
 export const PerfilNavBar = styled.div`

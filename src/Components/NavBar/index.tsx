@@ -8,6 +8,7 @@ import PerfilImg from '../../assets/fotoPerfil.jpg'
 import { LogoNavBar, NavBarContainer, PerfilNavBar } from './styles'
 import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
+import DropdownMenuBurgue from './DropMenu'
 
 export function Navbar() {
   const navigate = useNavigate()
@@ -35,11 +36,11 @@ export function Navbar() {
             <li>Filmes</li>
             <li>Bombando</li>
             <li>Minha Lista</li>
-            <li>Navegar por idiomas</li>
           </ul>
         </nav>
       </LogoNavBar>
       <PerfilNavBar>
+        <DropdownMenuBurgue />
         <form onSubmit={handleSubmit}>
           {/* <button type="submit"> */}
           <FaSearch onClick={handleSubmit} size={20} className="lupa" />

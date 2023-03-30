@@ -35,6 +35,9 @@ export const MovieContainer = styled.div`
     }
 
     button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
       width: 8rem;
       height: 3rem;
       font-size: 2rem;
