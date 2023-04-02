@@ -32,4 +32,9 @@ export const FooterContent = styled.div`
       margin-bottom: 2rem;
     }
   }
+
+  @media (max-width: 740px) {
+    gap: 2rem;
+    flex-direction: column;
+  }
 `
