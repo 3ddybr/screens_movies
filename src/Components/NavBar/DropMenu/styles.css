@@ -40,7 +40,8 @@ button {
 .DropdownMenuItem,
 .DropdownMenuCheckboxItem,
 .DropdownMenuRadioItem,
-.DropdownMenuSubTrigger {
+.DropdownMenuSubTrigger,
+.DropdownMenuForm {
   font-size: 13px;
   line-height: 1;
   color: var(--violet11);
@@ -53,6 +54,22 @@ button {
   padding-left: 25px;
   user-select: none;
   outline: none;
+}
+
+.DropdownMenuForm form input {
+  border: 0;
+  border-bottom: 1px solid var(--violet11);
+
+  font-size: 13px;
+  line-height: 1;
+  color: var(--violet11);
+  display: flex;
+  align-items: start;
+  height: 25px;
+  position: relative;
+  user-select: none;
+  outline: none;
+  color: var(--violet11);
 }
 .DropdownMenuSubTrigger[data-state='open'] {
   background-color: var(--violet4);

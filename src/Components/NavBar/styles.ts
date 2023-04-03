@@ -82,6 +82,10 @@ export const PerfilNavBar = styled.div`
     /* background: transparent; */
     /* } */
   }
-
+  @media (max-width: 940px) {
+    form {
+      display: none;
+    }
+  }
   /* border: 1px solid yellow; */
 `

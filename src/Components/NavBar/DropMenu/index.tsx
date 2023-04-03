@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import * as DropdownMenu from '@radix-ui/react-dropdown-menu'
 import {
   HamburgerMenuIcon,
@@ -9,12 +9,26 @@ import {
   ListBulletIcon,
 } from '@radix-ui/react-icons'
 import './styles.css'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
+import { FaSearch } from 'react-icons/fa'
 
 const DropdownMenuBurgue = () => {
-  const [bookmarksChecked, setBookmarksChecked] = React.useState(true)
-  const [urlsChecked, setUrlsChecked] = React.useState(false)
-  const [person, setPerson] = React.useState('pedro')
+  // const [bookmarksChecked, setBookmarksChecked] = useState(true)
+  // const [urlsChecked, setUrlsChecked] = useState(false)
+  // const [person, setPerson] = React.useState('pedro')
+
+  const navigate = useNavigate()
+  const [search, setSearch] = useState('')
+
+  const handleSubmit = async (e: any) => {
+    e.preventDefault()
+
+    if (!search) return
+
+    navigate(`/search?q=${search}`)
+    setSearch('')
+    // console.log(search)
+  }
 
   return (
     <DropdownMenu.Root>
@@ -30,6 +44,19 @@ const DropdownMenuBurgue = () => {
           align="end"
           sideOffset={5}
         >
+          <DropdownMenu.Label className="DropdownMenuForm">
+            <form onSubmit={handleSubmit}>
+              <input
+                type="text"
+                placeholder="Buscar Filmes"
+                onChange={(e) => setSearch(e.target.value)}
+                value={search}
+              />
+            </form>
+            <div className="RightSlot">
+              <FaSearch onClick={handleSubmit} size={15} className="lupa" />
+            </div>
+          </DropdownMenu.Label>
           <Link to="/">
             <DropdownMenu.Item className="DropdownMenuItem">
               Inicio{' '}

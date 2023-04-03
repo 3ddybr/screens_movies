@@ -42,9 +42,7 @@ export function Navbar() {
       <PerfilNavBar>
         <DropdownMenuBurgue />
         <form onSubmit={handleSubmit}>
-          {/* <button type="submit"> */}
           <FaSearch onClick={handleSubmit} size={20} className="lupa" />
-          {/* </button> */}
           <input
             type="text"
             placeholder="Buscar Filmes"
