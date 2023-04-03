@@ -104,7 +104,6 @@ export default function Search() {
         <p>{`${page} / ${totalPages}`}</p>
         <div>
           <button onClick={handlePaginationBefore}>Antes</button>
-          {/* <button>Proximo</button> */}
           <button onClick={handlePaginationNext}>Proximo</button>
         </div>
       </SearchButtonContent>
