@@ -50,7 +50,7 @@ export function Navbar() {
             value={search}
           />
         </form>
-        <FaBell size={20} />
+        <FaBell size={20} className="bell" />
         <img src={PerfilImg} alt="" />
         {/* <MdFace3 size={32} color="red" /> */}
       </PerfilNavBar>

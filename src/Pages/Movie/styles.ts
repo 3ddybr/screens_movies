@@ -12,7 +12,7 @@ export const MovieContainer = styled.div`
     justify-content: center;
     flex-direction: column;
 
-    gap: 1rem;
+    /* gap: 1rem; */
 
     h1 {
       font-size: 3.5rem;
@@ -55,8 +55,14 @@ export const CarouselContent = styled.div`
   flex-direction: column;
   max-width: 102.4rem;
 
+  p {
+    padding: 2rem;
+  }
+
   img {
+    width: 100%;
     max-width: 51rem;
     max-height: 28.1rem;
+    padding: 2rem;
   }
 `

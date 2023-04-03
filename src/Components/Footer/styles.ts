@@ -15,6 +15,7 @@ export const FooterContent = styled.div`
   align-items: center;
   justify-content: center;
 
+  width: 100%;
   margin: 10rem 2rem;
 
   div {
@@ -22,14 +23,18 @@ export const FooterContent = styled.div`
     align-items: center;
     justify-content: center;
 
+    width: 100%;
+
     gap: 2rem;
     margin: 2rem;
   }
 
   main {
+    width: 100%;
     padding: 0 3rem;
     img {
       margin-bottom: 2rem;
+      width: inherit;
     }
   }
 

@@ -5,6 +5,10 @@ export const NavBarContainer = styled.div`
   align-items: center;
   justify-content: space-between;
   padding: 2.5rem 6rem;
+
+  @media (max-width: 940px) {
+    padding: 2.5rem 3rem;
+  }
 `
 
 export const LogoNavBar = styled.div`
@@ -43,8 +47,10 @@ export const PerfilNavBar = styled.div`
   cursor: pointer;
 
   img {
-    width: 3.2rem;
+    max-width: 3.2rem;
     height: 3.2rem;
+
+    width: inherit;
   }
 
   form {
@@ -84,6 +90,10 @@ export const PerfilNavBar = styled.div`
   }
   @media (max-width: 940px) {
     form {
+      display: none;
+    }
+
+    .bell {
       display: none;
     }
   }

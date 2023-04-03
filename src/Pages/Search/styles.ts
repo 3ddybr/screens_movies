@@ -35,7 +35,16 @@ export const SearchButtonContent = styled.div`
     font-size: 1.5rem;
   }
 
+  div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
   button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 8rem;
     height: 3rem;
     font-size: 2rem;

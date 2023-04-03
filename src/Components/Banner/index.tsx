@@ -9,7 +9,7 @@ export function Banner() {
       <BannerCarouselExtra>
         <Carousel
           descShared="movie/now_playing?"
-          descTitle="Assistindo Agora"
+          // descTitle="Assistindo Agora"
         />
       </BannerCarouselExtra>
     </BannerContainer>

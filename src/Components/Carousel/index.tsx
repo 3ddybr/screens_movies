@@ -16,7 +16,7 @@ import { CarouselContainer, CarouselContent } from './styles'
 
 interface CarouselProps {
   descShared: string
-  descTitle: string
+  descTitle?: string
 }
 
 export function Carousel({ descShared, descTitle }: CarouselProps) {
@@ -52,6 +52,10 @@ export function Carousel({ descShared, descTitle }: CarouselProps) {
               navigation={true}
               modules={[Navigation]}
               breakpoints={{
+                440: {
+                  slidesPerView: 1.5,
+                  spaceBetween: 5,
+                },
                 640: {
                   slidesPerView: 2.5,
                   spaceBetween: 5,

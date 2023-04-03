@@ -5,7 +5,7 @@ import SemImg from '../../assets/semImg.jpg'
 interface CardCarouselProps {
   // children: ReactNode
   postImg: string
-  titleCard: string
+  titleCard?: string
   votoPont: string
 }
 

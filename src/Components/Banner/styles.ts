@@ -25,8 +25,15 @@ export const BannerCarouselExtra = styled.div`
     bottom: -9%;
 
     div > div {
+      /* display: none; */
       /* border: 1px solid red; */
-      max-height: 10rem;
+      /* max-height: 10rem; */
+    }
+  }
+
+  @media (max-width: 640px) {
+    div > div {
+      display: none;
     }
   }
 `
