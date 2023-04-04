@@ -1,6 +1,6 @@
-import { CiSearch } from 'react-icons/ci'
+// import { CiSearch } from 'react-icons/ci'
 import { FaBell, FaSearch } from 'react-icons/fa'
-import { MdFace3 } from 'react-icons/md'
+// import { MdFace3 } from 'react-icons/md'
 
 import LogoImg from '../../assets/logo.svg'
 import PerfilImg from '../../assets/fotoPerfil.jpg'
@@ -34,7 +34,9 @@ export function Navbar() {
             <li>Início</li>
             <li>Séries </li>
             <li>Filmes</li>
-            <li>Bombando</li>
+            <Link to="/atualizados">
+              <li>Atualizados</li>
+            </Link>
             <li>Minha Lista</li>
           </ul>
         </nav>

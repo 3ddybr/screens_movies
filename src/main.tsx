@@ -13,6 +13,7 @@ import App from './App'
 import Home from './Pages/Home'
 import Movie from './Pages/Movie'
 import Search from './Pages/Search'
+import Atualizados from './Pages/Atualizados'
 
 // const router = createBrowserRouter([
 //   {
@@ -46,6 +47,10 @@ const router = createBrowserRouter([
       {
         path: '/search',
         element: <Search />,
+      },
+      {
+        path: '/atualizados',
+        element: <Atualizados />,
       },
     ],
   },

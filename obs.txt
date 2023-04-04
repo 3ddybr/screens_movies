@@ -15,3 +15,48 @@
 ## estilizar pagina search  ---ok
 ## estilizar input de pesquisa navbar  ----ok
 #limitar para dois dígitos os pontos do card ---ok
+
+
+
+
+
+
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+
+function App() {
+  const [results, setResults] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+
+  useEffect(() => {
+    setIsLoading(true);
+
+    axios.get("https://api.com/results").then((response) => {
+      const { results } = response.data;
+      setResults(results);
+
+      const ids = results.map((result) => result.id);
+      const promises = ids.map((id) => axios.get(`https://api.com/${id}`));
+
+      Promise.all(promises).then((responses) => {
+        const data = responses.map((response) => response.data);
+        console.log(data);
+        setIsLoading(false);
+      });
+    });
+  }, []);
+
+  if (isLoading) {
+    return <p>Loading...</p>;
+  }
+
+  return (
+    <ul>
+      {results.map((result) => (
+        <li key={result.id}>{result.id}</li>
+      ))}
+    </ul>
+  );
+}
+
+export default App;
