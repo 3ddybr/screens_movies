@@ -31,7 +31,8 @@ export default function Atualizados() {
         page,
       },
     })
-    const data = res.data.results as []
+    const data = res.data as []
+    setResults(data)
 
     const ids: [] = res.data.results.map((resp: { id: number }) => resp.id)
     const promises = ids.map((id) => api.get(`movie/${id}`))
@@ -53,6 +54,11 @@ export default function Atualizados() {
 
   useEffect(() => {
     getMovie()
+    api.get(`/movie/changes`, {
+      params: {
+        page,
+      },
+    })
   }, [page])
 
   function handlePaginationNext() {
