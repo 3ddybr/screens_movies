@@ -13,52 +13,85 @@ interface respMovieProps {
 }
 
 export default function Atualizados() {
-  // const [searchParams] = useSearchParams()
-
   const [listMovies, setListMovies] = useState([])
+  const [listMoviesID, setListMoviesID] = useState([])
   const [page, setPage] = useState(1)
   const [totalPages, setTotalPages] = useState(0)
 
   const [results, setResults] = useState([])
 
-  // const query = searchParams.get('q')
-
   const getMovie = async () => {
-    // const res = await apiSearch.get(`query=${query}`)
     const res = await api.get(`movie/changes`, {
       params: {
-        // query,
         page,
       },
     })
     const data = res.data as []
     setResults(data)
 
+    // console.log('Resposta data changes', data)
+
     const ids: [] = res.data.results.map((resp: { id: number }) => resp.id)
-    const promises = ids.map((id) => api.get(`movie/${id}`))
+    setListMoviesID(ids)
+    // console.log(' ids de filmes', ids)
+    // const promises = ids.map(
+    //   async (id) =>
+    //     api
+    //       .get(`movie/${id}`)
+    //       .then(async (data) => {
+    //         const resMovie = await data.data
+    // const resMovieRes: [] = (...resMovieRes, resMovie)
+    // console.log('Resposta data movie', resMovie)
+    // if (resMovie) {
+    //   setListMovies(resMovie)
+    // }
+    // })
+    // .catch((err) => {
+    //   console.log('Erro ao buscar o filme', err)
+    // eslint-disable-next-line prettier/prettier
+    // })
+    // const resPromise = promises
+    // )
+    // console.log('promises de movie', promises)
 
     // setListMovies(data)
     setPage(res.data.page)
     setTotalPages(res.data.total_pages)
-    console.log('console do Data completo', res.data)
+    // console.log('console do Data completo', res.data)
 
-    Promise.all(promises).then((responses) => {
-      const dataMovies = responses.map((response) => response.data)
-      setListMovies(dataMovies as [])
-    })
+    // Promise.all(results).then((responses) => {
+    //   const dataMovies = responses.map((response) => response)
+    //   setListMovies(dataMovies as [])
+    //   console.log(dataMovies)
+    // })
 
     // const resMovieId = await api.get(`movie/${res.data.results.id}`)
-
-    console.log('resMOvie', listMovies)
   }
+  // console.log('resMOvie', listMovies)
+
+  useEffect(() => {
+    async function resData() {
+      listMoviesID.map(async (id) => {
+        return await api.get(`movie/${id}`).then((data) => {
+          const response = data.data
+          // console.log(response)
+          setListMovies((prev) => [...prev, response])
+        })
+      })
+    }
+    resData()
+  }, [listMoviesID])
+
+  console.log(listMovies)
 
   useEffect(() => {
     getMovie()
-    api.get(`/movie/changes`, {
-      params: {
-        page,
-      },
-    })
+    setListMovies([])
+    // api.get(`/movie/changes`, {
+    //   params: {
+    //     page,
+    //   },
+    // })
   }, [page])
 
   function handlePaginationNext() {
@@ -82,7 +115,7 @@ export default function Atualizados() {
         ) : (
           <>
             {listMovies.map(
-              (movie: {
+              (movieId: {
                 id: number
                 backdrop_path: string
                 poster_path?: string
@@ -90,29 +123,29 @@ export default function Atualizados() {
                 vote_average: string
               }) => (
                 <>
-                  <Link to={`/movie/${movie.id}`}>
-                    {movie.backdrop_path === null &&
-                    movie.poster_path === null ? (
+                  <Link to={`/movie/${movieId.id}`}>
+                    {movieId.backdrop_path === null &&
+                    movieId.poster_path === null ? (
                       <CardCarousel
-                        key={movie.id}
+                        key={movieId.id}
                         postImg=""
-                        titleCard={movie.title}
-                        votoPont={movie.vote_average}
+                        titleCard={movieId.title}
+                        votoPont={movieId.vote_average}
                       />
-                    ) : movie.backdrop_path === null &&
-                      movie.poster_path !== null ? (
+                    ) : movieId.backdrop_path === null &&
+                      movieId.poster_path !== null ? (
                       <CardCarousel
-                        key={movie.id}
-                        postImg={`${urlImg500}${movie.poster_path}`}
-                        titleCard={movie.title}
-                        votoPont={movie.vote_average}
+                        key={movieId.id}
+                        postImg={`${urlImg500}${movieId.poster_path}`}
+                        titleCard={movieId.title}
+                        votoPont={movieId.vote_average}
                       />
                     ) : (
                       <CardCarousel
-                        key={movie.id}
-                        postImg={`${urlImg500}${movie.backdrop_path}`}
-                        titleCard={movie.title}
-                        votoPont={movie.vote_average}
+                        key={movieId.id}
+                        postImg={`${urlImg500}${movieId.backdrop_path}`}
+                        titleCard={movieId.title}
+                        votoPont={movieId.vote_average}
                       />
                     )}
                   </Link>
