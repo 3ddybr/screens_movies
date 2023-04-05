@@ -64,7 +64,7 @@ export default function Search() {
                 backdrop_path: string
                 poster_path?: string
                 title: string
-                vote_average: string
+                vote_average: number
               }) => (
                 <>
                   <Link to={`/movie/${movie.id}`}>

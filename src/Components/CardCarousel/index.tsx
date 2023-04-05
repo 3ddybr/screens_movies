@@ -6,7 +6,7 @@ interface CardCarouselProps {
   // children: ReactNode
   postImg: string
   titleCard?: string
-  votoPont: string
+  votoPont: number | undefined
 }
 
 export function CardCarousel({
@@ -28,7 +28,8 @@ export function CardCarousel({
         <img src={SemImg} alt={titleCard} />
       )}
       <h1>{titleCard}</h1>
-      <p>{parseFloat(votoPont).toFixed(1)} </p>
+      <p>{votoPont} </p>
+      {/* <p>{parseFloat(votoPont).toFixed(1)} </p> */}
 
       <div>
         <ProgressRoot value={progress}>

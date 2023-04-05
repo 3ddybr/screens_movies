@@ -13,7 +13,7 @@ interface respMovieProps {
 }
 
 export default function Atualizados() {
-  const [listMovies, setListMovies] = useState([])
+  const [listMovies, setListMovies] = useState<DataProps[]>([])
   const [listMoviesID, setListMoviesID] = useState([])
   const [page, setPage] = useState(1)
   const [totalPages, setTotalPages] = useState(0)
@@ -73,7 +73,7 @@ export default function Atualizados() {
     async function resData() {
       listMoviesID.map(async (id) => {
         return await api.get(`movie/${id}`).then((data) => {
-          const response = data.data
+          const response: DataProps = data.data
           // console.log(response)
           setListMovies((prev) => [...prev, response])
         })
@@ -114,45 +114,37 @@ export default function Atualizados() {
           <Spinier />
         ) : (
           <>
-            {listMovies.map(
-              (movieId: {
-                id: number
-                backdrop_path: string
-                poster_path?: string
-                title: string
-                vote_average: string
-              }) => (
-                <>
-                  <Link to={`/movie/${movieId.id}`}>
-                    {movieId.backdrop_path === null &&
-                    movieId.poster_path === null ? (
-                      <CardCarousel
-                        key={movieId.id}
-                        postImg=""
-                        titleCard={movieId.title}
-                        votoPont={movieId.vote_average}
-                      />
-                    ) : movieId.backdrop_path === null &&
-                      movieId.poster_path !== null ? (
-                      <CardCarousel
-                        key={movieId.id}
-                        postImg={`${urlImg500}${movieId.poster_path}`}
-                        titleCard={movieId.title}
-                        votoPont={movieId.vote_average}
-                      />
-                    ) : (
-                      <CardCarousel
-                        key={movieId.id}
-                        postImg={`${urlImg500}${movieId.backdrop_path}`}
-                        titleCard={movieId.title}
-                        votoPont={movieId.vote_average}
-                      />
-                    )}
-                  </Link>
-                </>
-                // eslint-disable-next-line prettier/prettier
-              )
-            )}
+            {listMovies.map((movie: DataProps) => (
+              <>
+                <Link to={`/movie/${movie.id}`}>
+                  {movie.backdrop_path === null &&
+                  movie.poster_path === null ? (
+                    <CardCarousel
+                      key={movie.id}
+                      postImg=""
+                      titleCard={movie.title}
+                      votoPont={movie.vote_average}
+                    />
+                  ) : movie.backdrop_path === null &&
+                    movie.poster_path !== null ? (
+                    <CardCarousel
+                      key={movie.id}
+                      postImg={`${urlImg500}${movie.poster_path}`}
+                      titleCard={movie.title}
+                      votoPont={movie.vote_average}
+                    />
+                  ) : (
+                    <CardCarousel
+                      key={movie.id}
+                      postImg={`${urlImg500}${movie.backdrop_path}`}
+                      titleCard={movie.title}
+                      votoPont={movie.vote_average}
+                    />
+                  )}
+                </Link>
+              </>
+              // eslint-disable-next-line prettier/prettier
+            ))}
           </>
         )}
       </SearchContent>

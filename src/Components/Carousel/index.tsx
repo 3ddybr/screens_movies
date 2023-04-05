@@ -87,7 +87,7 @@ export function Carousel({ descShared, descTitle }: CarouselProps) {
                   id: null | undefined
                   backdrop_path: string
                   title: string
-                  vote_average: string
+                  vote_average: number
                 }) => (
                   <SwiperSlide key={movie.id}>
                     <Link to={`movie/${movie.id}`}>
