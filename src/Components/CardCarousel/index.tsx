@@ -3,7 +3,6 @@ import { useEffect, useState } from 'react'
 import { Container, ProgressIndicator, ProgressRoot } from './styles'
 import SemImg from '../../assets/semImg.jpg'
 interface CardCarouselProps {
-  // children: ReactNode
   postImg: string
   titleCard?: string
   votoPont: number | undefined
@@ -28,8 +27,7 @@ export function CardCarousel({
         <img src={SemImg} alt={titleCard} />
       )}
       <h1>{titleCard}</h1>
-      <p>{votoPont} </p>
-      {/* <p>{parseFloat(votoPont).toFixed(1)} </p> */}
+      <p>{votoPont?.toFixed(1)} </p>
 
       <div>
         <ProgressRoot value={progress}>

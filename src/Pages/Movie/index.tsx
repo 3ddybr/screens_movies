@@ -40,8 +40,14 @@ export default function Movie() {
             <div>
               <h1>{movie?.title}</h1>
               <h2>{movie?.tagline}</h2>
-              {movie?.backdrop_path === null ? (
+
+              {movie?.backdrop_path === null && movie.poster_path === null ? (
                 <img src={SemImg} alt={movie?.title} />
+              ) : movie.poster_path ? (
+                <img
+                  src={`${urlImg500}${movie?.poster_path}`}
+                  alt={movie?.title}
+                />
               ) : (
                 <img
                   src={`${urlImg500}${movie?.backdrop_path}`}

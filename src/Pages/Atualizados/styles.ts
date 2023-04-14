@@ -8,10 +8,11 @@ export const SearchContainer = styled.div`
 
   flex-direction: column;
 
-  /* border: 1px solid red; */
-
-  div {
+  h1 {
+    font-size: 2.5rem;
   }
+
+  /* border: 1px solid red; */
 `
 
 export const SearchContent = styled.div`

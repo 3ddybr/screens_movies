@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { Link, useSearchParams } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { api, urlImg500 } from '../../api/api'
 
 import { CardCarousel } from '../../Components/CardCarousel'
@@ -8,17 +8,21 @@ import { DataProps } from '../../@types/movie'
 import { SearchButtonContent, SearchContainer, SearchContent } from './styles'
 import { Spinier } from '../../utils/spinier'
 
-interface respMovieProps {
+interface resultsPros {
   id: number
+  adult: boolean
+}
+interface respMovieProps {
+  results: resultsPros[]
 }
 
 export default function Atualizados() {
   const [listMovies, setListMovies] = useState<DataProps[]>([])
-  const [listMoviesID, setListMoviesID] = useState([])
+  const [listMoviesID, setListMoviesID] = useState<Number[]>([])
   const [page, setPage] = useState(1)
   const [totalPages, setTotalPages] = useState(0)
 
-  const [results, setResults] = useState([])
+  const [results, setResults] = useState<resultsPros[]>([])
 
   const getMovie = async () => {
     const res = await api.get(`movie/changes`, {
@@ -26,55 +30,27 @@ export default function Atualizados() {
         page,
       },
     })
-    const data = res.data as []
-    setResults(data)
+    setResults(res.data.results)
+    // console.log(res.data.results)
 
-    // console.log('Resposta data changes', data)
-
-    const ids: [] = res.data.results.map((resp: { id: number }) => resp.id)
-    setListMoviesID(ids)
-    // console.log(' ids de filmes', ids)
-    // const promises = ids.map(
-    //   async (id) =>
-    //     api
-    //       .get(`movie/${id}`)
-    //       .then(async (data) => {
-    //         const resMovie = await data.data
-    // const resMovieRes: [] = (...resMovieRes, resMovie)
-    // console.log('Resposta data movie', resMovie)
-    // if (resMovie) {
-    //   setListMovies(resMovie)
-    // }
-    // })
-    // .catch((err) => {
-    //   console.log('Erro ao buscar o filme', err)
-    // eslint-disable-next-line prettier/prettier
-    // })
-    // const resPromise = promises
-    // )
-    // console.log('promises de movie', promises)
-
-    // setListMovies(data)
     setPage(res.data.page)
     setTotalPages(res.data.total_pages)
-    // console.log('console do Data completo', res.data)
-
-    // Promise.all(results).then((responses) => {
-    //   const dataMovies = responses.map((response) => response)
-    //   setListMovies(dataMovies as [])
-    //   console.log(dataMovies)
-    // })
-
-    // const resMovieId = await api.get(`movie/${res.data.results.id}`)
   }
-  // console.log('resMOvie', listMovies)
+
+  useEffect(() => {
+    const dataFilter = results.filter((resp) => resp.adult === false)
+    // console.log('resposta do dataFilter ', dataFilter)
+
+    const ids = dataFilter.map((resp: { id: number }) => resp.id)
+
+    setListMoviesID(ids)
+  }, [results])
 
   useEffect(() => {
     async function resData() {
       listMoviesID.map(async (id) => {
         return await api.get(`movie/${id}`).then((data) => {
           const response: DataProps = data.data
-          // console.log(response)
           setListMovies((prev) => [...prev, response])
         })
       })
@@ -82,16 +58,9 @@ export default function Atualizados() {
     resData()
   }, [listMoviesID])
 
-  console.log(listMovies)
-
   useEffect(() => {
     getMovie()
     setListMovies([])
-    // api.get(`/movie/changes`, {
-    //   params: {
-    //     page,
-    //   },
-    // })
   }, [page])
 
   function handlePaginationNext() {
